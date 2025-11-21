@@ -27,10 +27,10 @@ export const AppDataSource = new DataSource({
 export const initializeDatabase = async (): Promise<void> => {
   try {
     await AppDataSource.initialize();
-    console.log(' Database connected successfully');
-    console.log(` Database: ${process.env.DB_DATABASE}`);
+    console.log('Database connected successfully');
+    console.log(`Database: ${process.env.DB_DATABASE}`);
   } catch (error) {
-    console.error(' Error connecting to database:', error);
+    console.error('Error connecting to database:', error);
     throw error;
   }
 };

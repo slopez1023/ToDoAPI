@@ -47,7 +47,7 @@ describe('E2E Test - Complete Task Management Flow', () => {
     // ============================================
     // PASO 1: Crear usuario
     // ============================================
-    console.log('📝 Step 1: Creating user...');
+    console.log('Step 1: Creating user...');
     const createUserResponse = await request(app)
       .post('/api/users')
       .send({
@@ -58,12 +58,12 @@ describe('E2E Test - Complete Task Management Flow', () => {
     expect(createUserResponse.status).toBe(201);
     expect(createUserResponse.body.data).toBeDefined();
     userId = createUserResponse.body.data.id;
-    console.log(`✅ User created with ID: ${userId}`);
+    console.log(`User created with ID: ${userId}`);
 
     // ============================================
     // PASO 2: Crear 2 tareas para ese usuario
     // ============================================
-    console.log('📝 Step 2: Creating 2 tasks...');
+    console.log('Step 2: Creating 2 tasks...');
     
     // Crear primera tarea
     const createTask1Response = await request(app)
@@ -76,7 +76,7 @@ describe('E2E Test - Complete Task Management Flow', () => {
 
     expect(createTask1Response.status).toBe(201);
     task1Id = createTask1Response.body.data.id;
-    console.log(`✅ Task 1 created with ID: ${task1Id}`);
+    console.log(`Task 1 created with ID: ${task1Id}`);
 
     // Crear segunda tarea
     const createTask2Response = await request(app)
@@ -89,12 +89,12 @@ describe('E2E Test - Complete Task Management Flow', () => {
 
     expect(createTask2Response.status).toBe(201);
     task2Id = createTask2Response.body.data.id;
-    console.log(`✅ Task 2 created with ID: ${task2Id}`);
+    console.log(`Task 2 created with ID: ${task2Id}`);
 
     // ============================================
     // PASO 3: Listar tareas del usuario
     // ============================================
-    console.log('📝 Step 3: Listing user tasks...');
+    console.log('Step 3: Listing user tasks...');
     const listTasksResponse = await request(app)
       .get(`/api/users/${userId}/tasks`);
 
@@ -102,35 +102,35 @@ describe('E2E Test - Complete Task Management Flow', () => {
     expect(listTasksResponse.body.data).toBeDefined();
     expect(Array.isArray(listTasksResponse.body.data)).toBe(true);
     expect(listTasksResponse.body.data.length).toBe(2);
-    console.log(`✅ Found ${listTasksResponse.body.data.length} tasks`);
+    console.log(`Found ${listTasksResponse.body.data.length} tasks`);
 
     // ============================================
     // PASO 4: Marcar una tarea como completada
     // ============================================
-    console.log(`📝 Step 4: Marking task ${task1Id} as completed...`);
+    console.log(`Step 4: Marking task ${task1Id} as completed...`);
     const completeTaskResponse = await request(app)
       .patch(`/api/tasks/${task1Id}/complete`);
 
     expect(completeTaskResponse.status).toBe(200);
     expect(completeTaskResponse.body.data).toBeDefined();
     expect(completeTaskResponse.body.data.is_completed).toBe(true);
-    console.log(`✅ Task ${task1Id} marked as completed`);
+    console.log(`Task ${task1Id} marked as completed`);
 
     // ============================================
     // PASO 5: Eliminar una tarea
     // ============================================
-    console.log(`📝 Step 5: Deleting task ${task2Id}...`);
+    console.log(`Step 5: Deleting task ${task2Id}...`);
     const deleteTaskResponse = await request(app)
       .delete(`/api/tasks/${task2Id}`);
 
     expect(deleteTaskResponse.status).toBe(200);
     expect(deleteTaskResponse.body.message).toBe('Task deleted successfully');
-    console.log(`✅ Task ${task2Id} deleted`);
+    console.log(`Task ${task2Id} deleted`);
 
     // ============================================
     // PASO 6: Verificar que solo queda 1 tarea
     // ============================================
-    console.log('📝 Step 6: Verifying final state...');
+    console.log('Step 6: Verifying final state...');
     const finalListResponse = await request(app)
       .get(`/api/users/${userId}/tasks`);
 
@@ -145,7 +145,7 @@ describe('E2E Test - Complete Task Management Flow', () => {
     expect(remainingTask.title).toBe('E2E Task 1');
     expect(remainingTask.is_completed).toBe(true);
     
-    console.log('✅ Final verification passed: Only 1 task remains (completed)');
-    console.log('🎉 E2E Test completed successfully!');
+    console.log('Final verification passed: Only 1 task remains (completed)');
+    console.log('E2E Test completed successfully!');
   });
 });

@@ -1,8 +1,8 @@
-# 📝 ToDo API - Sistema de Gestión de Tareas
+# ToDo API - Sistema de Gestión de Tareas
 
 API REST para gestionar tareas (to-do list) asociadas a usuarios, estructurada por capas (Modelos, Servicios, Controladores).
 
-## 🛠️ Tecnologías
+## Tecnologías
 
 - **Lenguaje:** TypeScript
 - **Framework:** Express.js
@@ -12,7 +12,7 @@ API REST para gestionar tareas (to-do list) asociadas a usuarios, estructurada p
 - **Análisis estático:** ESLint + eslint-plugin-security
 - **CI/CD:** GitHub Actions
 
-## 📁 Estructura del Proyecto
+## Estructura del Proyecto
 
 ```
 ToDoAPI/
@@ -47,7 +47,7 @@ ToDoAPI/
 └── .env
 ```
 
-## 📊 Modelo de Datos
+## Modelo de Datos
 
 ### Tabla `users`
 | Campo       | Tipo      | Descripción                |
@@ -67,7 +67,7 @@ ToDoAPI/
 | user_id      | INT (FK)  | ID del usuario propietario |
 | created_at   | TIMESTAMP | Fecha de creación          |
 
-## 🚀 Instalación y Configuración
+## Instalación y Configuración
 
 ### 1. Requisitos previos
 
@@ -125,7 +125,7 @@ npm start
 
 El servidor estará disponible en: `http://localhost:3000`
 
-## 📡 Endpoints de la API
+## Endpoints de la API
 
 ### **Health Check**
 ```
@@ -217,7 +217,7 @@ PATCH /api/tasks/:id/complete
 DELETE /api/tasks/:id
 ```
 
-## 🧪 Pruebas
+## Pruebas
 
 ### Ejecutar todas las pruebas
 ```bash
@@ -241,20 +241,20 @@ npm run test:e2e
 Las pruebas incluyen:
 
 **Unitarias:**
-1. ✅ No permitir usuario con email duplicado
-2. ✅ No crear tarea sin user_id
-3. ✅ Actualizar is_completed correctamente
-4. ✅ Eliminar tarea exitosamente
+1. No permitir usuario con email duplicado
+2. No crear tarea sin user_id
+3. Actualizar is_completed correctamente
+4. Eliminar tarea exitosamente
 
 **Integración:**
-1. ✅ POST /api/users → respuesta 201
-2. ✅ POST /api/tasks → asociación con usuario
-3. ✅ GET /api/users/:id/tasks → listar tareas
+1. POST /api/users → respuesta 201
+2. POST /api/tasks → asociación con usuario
+3. GET /api/users/:id/tasks → listar tareas
 
 **E2E:**
-1. ✅ Flujo completo de 6 pasos
+1. Flujo completo de 6 pasos
 
-## 🔍 Análisis Estático
+## Análisis Estático
 
 Ejecutar ESLint con reglas de seguridad:
 
@@ -265,7 +265,7 @@ npm run lint
 npm run lint:fix
 ```
 
-## 🔐 Validaciones de Negocio
+## Validaciones de Negocio
 
 La capa de servicios implementa:
 
@@ -274,7 +274,7 @@ La capa de servicios implementa:
 3. **Usuario existente:** Verifica que user_id exista antes de crear tarea
 4. **Actualización controlada:** Solo permite actualizar `is_completed`
 
-## 🚦 Códigos de Respuesta HTTP
+## Códigos de Respuesta HTTP
 
 | Código | Significado           | Uso                                    |
 |--------|-----------------------|----------------------------------------|
@@ -284,7 +284,7 @@ La capa de servicios implementa:
 | 404    | Not Found             | Recurso no encontrado                  |
 | 500    | Internal Server Error | Error interno del servidor             |
 
-## 📋 Ejemplos de Uso
+## Ejemplos de Uso
 
 ### Ejemplo completo con cURL
 
@@ -309,20 +309,20 @@ curl -X PATCH http://localhost:3000/api/tasks/1/complete
 curl -X DELETE http://localhost:3000/api/tasks/1
 ```
 
-## 🔄 CI/CD Pipeline
+## CI/CD Pipeline
 
 El proyecto incluye un pipeline de GitHub Actions que:
 
-1. ✅ Instala dependencias
-2. ✅ Compila TypeScript
-3. ✅ Ejecuta pruebas unitarias
-4. ✅ Ejecuta pruebas de integración
-5. ✅ Ejecuta prueba E2E
-6. ✅ Ejecuta análisis estático (ESLint)
-7. ✅ Imprime "OK" si todo pasa
-8. ❌ Marca como "Failed" si algo falla
+1. Instala dependencias
+2. Compila TypeScript
+3. Ejecuta pruebas unitarias
+4. Ejecuta pruebas de integración
+5. Ejecuta prueba E2E
+6. Ejecuta análisis estático (ESLint)
+7. Imprime "OK" si todo pasa
+8. Marca como "Failed" si algo falla
 
-## ⚠️ Advertencias Importantes
+## Advertencias Importantes
 
 - **Base de datos:** Asegúrate de que PostgreSQL esté corriendo antes de iniciar
 - **Puerto 3000:** Verifica que el puerto 3000 esté disponible
@@ -330,7 +330,7 @@ El proyecto incluye un pipeline de GitHub Actions que:
 - **Sincronización:** `synchronize: true` solo debe usarse en desarrollo
 - **Tests:** Los tests requieren conexión a la base de datos
 
-## 🛠️ Troubleshooting
+## Troubleshooting
 
 ### Error: "Cannot connect to database"
 ```bash
@@ -354,14 +354,14 @@ PORT=3001
 CREATE DATABASE todo_api_db;
 ```
 
-## 📞 Contacto
+## Contacto
 
 Para dudas o sugerencias, contactar al desarrollador.
 
-## 📄 Licencia
+## Licencia
 
 ISC
 
 ---
 
-**Desarrollado para el parcial práctico de Backend Development** 🚀
+**Desarrollado para el parcial práctico de Backend Development**
